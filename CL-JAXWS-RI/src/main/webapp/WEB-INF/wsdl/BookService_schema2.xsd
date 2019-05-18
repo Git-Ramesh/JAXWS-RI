@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://model.rs.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://service.rs.com">
+
+  <xs:import namespace="http://service.rs.com" schemaLocation="BookService_schema1.xsd"/>
+
+  <xs:element name="RegisterBookIn" nillable="true" type="ns1:book"/>
+
+  <xs:element name="RegisterBookOut" nillable="true" type="ns1:book"/>
+
+  <xs:element name="SearchBookOut" nillable="true" type="ns1:book"/>
+</xs:schema>
+

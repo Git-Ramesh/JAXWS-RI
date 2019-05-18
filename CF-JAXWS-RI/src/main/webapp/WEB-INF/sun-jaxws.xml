@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints
+	xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+	<!-- It should start with WEB-INF/wsdl -->
+	<endpoint name="BookService" wsdl="WEB-INF/wsdl/BookService.wsdl"
+		implementation="com.rs.service.BookServiceImpl"
+		url-pattern="/bookService" />
+</endpoints>

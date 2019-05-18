@@ -1,0 +1,10 @@
+<xs:schema targetNamespace="http://model.rs.com"
+	elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:service="http://service.rs.com">
+	<xs:import namespace="http://service.rs.com"
+		schemaLocation="BookService_schema1.xsd" />
+	<xs:element name="RegisterBookIn" type="service:book" />
+	<xs:element name="RegisterBookOut" type="service:book" />
+	<xs:element name="SearchBookOut" type="service:book" />
+</xs:schema>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wsdl:definitions
+	targetNamespace="http://service.rs.com"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:service="http://service.rs.com" xmlns:model="http://model.rs.com"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<wsdl:types>
+		<xs:schema>
+			<xs:import namespace="http://service.rs.com"
+				schemaLocation="BookService_schema1.xsd" />
+			<xs:import namespace="http://model.rs.com"
+				schemaLocation="BookService_schema2.xsd" />
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="registerBookRequest">
+		<wsdl:part name="book" element="model:RegisterBookIn" />
+	</wsdl:message>
+	<wsdl:message name="registerBookResponse">
+		<wsdl:part name="param" element="model:RegisterBookOut" />
+	</wsdl:message>
+	<wsdl:message name="searchBookRequest">
+		<wsdl:part name="isbn" element="service:SearchBookIn" />
+	</wsdl:message>
+	<wsdl:message name="searchBookResponse">
+		<wsdl:part name="param" element="model:SearchBookOut" />
+	</wsdl:message>
+	<wsdl:portType name="BookService">
+		<wsdl:operation name="registerBook">
+			<wsdl:input message="service:registerBookRequest" />
+			<wsdl:output message="service:registerBookResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="searchBook">
+			<wsdl:input message="service:searchBookRequest" />
+			<wsdl:output message="service:searchBookResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BookServiceSoapBinding"
+		type="service:BookService">
+		<soap:binding
+			transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+		<wsdl:operation name="registerBook">
+			<soap:operation
+				soapAction="http://service.rs.com/registerBook" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchBook">
+			<soap:operation
+				soapAction="http://service.rs.com/searchBook" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="BookServiceImplService">
+		<wsdl:port name="BookServiceImplPort"
+			binding="service:BookServiceSoapBinding">
+			<soap:address location="http://location.com" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
+
